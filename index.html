@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placar Uno</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #007BFF;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            color: #333;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .player-container {
+            margin-top: 20px;
+        }
+        .player {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .player input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .score {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        .buttons button {
+            padding: 10px;
+            width: 48%;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .buttons button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Placar Uno</h1>
+        <div id="player1" class="player">
+            <input type="text" placeholder="Nome do Participante 1">
+            <div id="score1" class="score">0</div>
+            <div class="buttons">
+                <button onclick="updateScore(1, 1)">+</button>
+                <button onclick="updateScore(1, -1)">-</button>
+            </div>
+        </div>
+        <div id="player2" class="player">
+            <input type="text" placeholder="Nome do Participante 2">
+            <div id="score2" class="score">0</div>
+            <div class="buttons">
+                <button onclick="updateScore(2, 1)">+</button>
+                <button onclick="updateScore(2, -1)">-</button>
+            </div>
+        </div>
+        <div id="player3" class="player">
+            <input type="text" placeholder="Nome do Participante 3">
+            <div id="score3" class="score">0</div>
+            <div class="buttons">
+                <button onclick="updateScore(3, 1)">+</button>
+                <button onclick="updateScore(3, -1)">-</button>
+            </div>
+        </div>
+        <div id="player4" class="player">
+            <input type="text" placeholder="Nome do Participante 4">
+            <div id="score4" class="score">0</div>
+            <div class="buttons">
+                <button onclick="updateScore(4, 1)">+</button>
+                <button onclick="updateScore(4, -1)">-</button>
+            </div>
+        </div>
+        <div id="player5" class="player">
+            <input type="text" placeholder="Nome do Participante 5">
+            <div id="score5" class="score">0</div>
+            <div class="buttons">
+                <button onclick="updateScore(5, 1)">+</button>
+                <button onclick="updateScore(5, -1)">-</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateScore(playerId, value) {
+            const score = document.getElementById(`score${playerId}`);
+            let currentScore = parseInt(score.textContent);
+            currentScore += value;
+            if (currentScore < 0) currentScore = 0;
+            score.textContent = currentScore;
+        }
+    </script>
+</body>
+</html>
